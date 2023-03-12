@@ -17,7 +17,7 @@
 #include <stdlib.h>
 
 
-#define MAX_VALUE_ARR     100
+#define MAX_VALUE_ARR     100          
 #define MIN_VALUE_ARR    -100
 #define TRUE               1
 #define FALSE              0
@@ -26,20 +26,21 @@ void search_duplicate_values(char *darray, int num_da_element);
 
 int main(void) {
 
-    int  array_num_element;
-    char *dynamic_array;
+    int  array_num_element;                             // input -> number of arr. elements
+    char *dynamic_array;                                // input -> dynamic array
     
-    int  loop_index,
+    int  loop_index,                                    // support vars 
          check_scanf,
          n_scanf,
-         not_correct_input,
-         check_validation_value_arr;
+         not_correct_input;
+    int  check_validation_value_arr = 0;
     
+    // input validation
     do {
 
         printf("Insert the number of values > \n");
         check_scanf = scanf("%d", &array_num_element);
-        printf("Inser the number the %d element > \n");
+        printf("Insert the value of the element > \n");
         if (array_num_element >= 1) {
 
                 dynamic_array = (char *)calloc(array_num_element, sizeof(char));
@@ -62,9 +63,9 @@ int main(void) {
 
         while (getchar() != '\n');
 
-    } while (not_correct_input);
+    } while (not_correct_input == TRUE);
 
-    search_duplicate_values(&dynamic_array, array_num_element);
+    search_duplicate_values(dynamic_array, array_num_element);
 
     return (0);
 }
@@ -72,31 +73,28 @@ int main(void) {
 
 void search_duplicate_values(char *dynamic_array, int number_of_element) {
 
-    int loop_index,
+    int loop_index,                     // support vars
         backup_loop_index;
     
-    int number_of_right_element;
+    int number_of_right_element;        // output var.
+
+    backup_loop_index = number_of_element;
 
     for (loop_index = 0; (loop_index < number_of_element); loop_index++) {
 
-        if (dynamic_array[loop_index] == dynamic_array[loop_index + 1]) {
-
+        if (dynamic_array[loop_index] == dynamic_array[loop_index + 1]) {           // substitution of the non corretc element
             dynamic_array[loop_index] = '_';
-            backup_loop_index = number_of_element;
             dynamic_array[backup_loop_index] = dynamic_array[loop_index];
             --backup_loop_index;
-
         } 
     }
 
-    while (dynamic_array[loop_index] != '_' && loop_index < number_of_element) {
+    loop_index = 0;
+    while (dynamic_array[loop_index] != '_' && loop_index < number_of_element) {    // determination of K
         number_of_right_element++;
         loop_index++;
     } 
 
-    printf("Number of right element > %d \n", number_of_element);
-
-    while (loop_index < number_of_element)
-        printf("Right Eelement > %c \n", dynamic_array[loop_index]);
+    printf("Number of right element > %d \n", number_of_right_element);       
 
 }
