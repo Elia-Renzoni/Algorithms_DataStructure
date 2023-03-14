@@ -50,7 +50,7 @@ int binary_research(int array[], int num_element, int value_s) {
             ((index_sx < index_dx) && (array[index_mx] != value_s));
          index_mx = (index_sx + index_mx) / 2)
 
-         if (index_mx > value_s)
+         if (array[index_mx] > value_s)
             index_dx = index_mx - 1;
          else
             index_sx = index_mx + 1;
