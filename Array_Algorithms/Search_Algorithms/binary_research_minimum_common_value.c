@@ -108,6 +108,6 @@ int binary_search_algorithm(int search_in_arr_element, int value_to_search[], in
             sx_index = mx_index + 1;
 
     
-    return ((sx_index <= dx_index? mx_index : NOT_FOUND));
+    return ((sx_index <= dx_index)? mx_index : NOT_FOUND));
 
 }
