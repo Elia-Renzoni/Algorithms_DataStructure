@@ -7,8 +7,8 @@
  * 
  * @copyright Copyright (c) 2023
  * 
- * Problem : Dato un array di interi, restituire la media degli interi rimanenti dopo aver rimosso dal piu' piccolo il 5% e 
- * dal piu' grande il 5%. 
+ * Problem : Dato un array di interi, restituire la media degli interi rimanenti dopo aver rimosso dal piu' piccolo il 50% e 
+ * dal piu' grande il 50%. 
  * 
  */
 
