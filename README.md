@@ -1,5 +1,5 @@
 # Algorithms and Data Structure 
-> * Exercises of Algorithms and Data Structure Teaching. University of Urbino - Applied Computer Science
+> * Exercises of Algorithms and Data Structure Teaching. University of Urbino - Bachelor's Degree in Applied Computer Science
 > * Sequentail and Deterministic Algorithms. 
 
 ## Array Algorithms > 
