@@ -72,6 +72,8 @@ int main(void) {
         printf("Peak element find ! %d \n", index_find);
     else 
         printf("Peak element non find ! \n", index_find);
+    
+    free(sequence_of_integers);
 
     return (0);
 }
