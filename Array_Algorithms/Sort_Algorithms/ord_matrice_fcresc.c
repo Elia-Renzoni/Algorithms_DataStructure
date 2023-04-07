@@ -72,6 +72,8 @@ int main(void) {
         printf("%d\t", array[index]);
         index++;
     }
+    
+    free(array);
 
     return (0);
 }
