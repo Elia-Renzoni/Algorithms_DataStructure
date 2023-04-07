@@ -59,6 +59,8 @@ int main(void) {
 
     media_elementi_array(d_array, num_elementi, &media_valori);
     printf("La media dei valori dell'array e' > %d \n", media_valori);
+    
+    free(d_array);
 
 
     return (0);
