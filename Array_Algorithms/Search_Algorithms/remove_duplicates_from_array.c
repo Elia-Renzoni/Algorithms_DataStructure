@@ -67,6 +67,8 @@ int main(void) {
 
     search_duplicate_values(dynamic_array, array_num_element);
 
+    free(dynamic_array);
+    
     return (0);
 }
 
