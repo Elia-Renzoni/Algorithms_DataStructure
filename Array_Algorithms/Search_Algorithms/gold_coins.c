@@ -56,7 +56,7 @@ int main(void) {
     else
         printf("Elemento non trovato !\n");
     
-
+    free(darray);
 
     return (0);
 }
