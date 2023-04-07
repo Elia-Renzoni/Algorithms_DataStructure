@@ -68,10 +68,9 @@ int main(void) {
     else 
         printf("Miscuglio Impossibile ! \n");
 
-/**
- * @brief nota. 
- * 
- */
+
+    free(carte);
+    
     return (0);
 
 }
