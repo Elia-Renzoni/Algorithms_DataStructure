@@ -73,6 +73,8 @@ int main(void) {
     elemento = seleziona_elemento(numeri, numero_elementi, grad_valore_ricercare);
 
     printf("%d elemento piu' grande > %d \n", grad_valore_ricercare, elemento);
+    
+    free(numeri);
 
     return (0);
 }
