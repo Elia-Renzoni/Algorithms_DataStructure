@@ -33,7 +33,9 @@ int main(void) {
 
     printf("Inserisci dei numeri binari (1 e 0) e quando vuoi terminare inserisci -1 > \n");
     testa_lista_sing_concat = creazione_lista();
-    ricerca_e_traduzione(testa_lista_sing_concat);
+    
+    if (testa_lista_sing_concat != NULL)
+        ricerca_e_traduzione(testa_lista_sing_concat);
 
     free(testa_lista_sing_concat);
 
@@ -56,15 +58,16 @@ binario_t *creazione_lista(void) {
 
         testa_lista = oggetto_lista = (binario_t *)malloc(sizeof(binario_t));
         oggetto_lista->numero_binario = valore_bin;
-    }
-
     
-    for (scanf("%d", &valore_bin); (valore_bin != SENTINELLA); scanf("%d", &valore_bin)) {
-        oggetto_lista = oggetto_lista->successivo = (binario_t *)malloc(sizeof(binario_t));
-        oggetto_lista->numero_binario = valore_bin;
-    }
+        for (scanf("%d", &valore_bin); (valore_bin != SENTINELLA); scanf("%d", &valore_bin)) {
+                oggetto_lista = oggetto_lista->successivo = (binario_t *)malloc(sizeof(binario_t));
+                oggetto_lista->numero_binario = valore_bin;
+        }
 
-    oggetto_lista->successivo = NULL;
+        oggetto_lista->successivo = NULL;
+    }
+    else 
+        testa_lista = NULL;
 
     return (testa_lista);
         
