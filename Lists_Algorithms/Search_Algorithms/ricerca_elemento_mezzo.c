@@ -34,9 +34,11 @@ int main(void) {
     int          numero_oggetti = 1;
 
     testa_lsita_sing_concat = creazione_lista(&numero_oggetti);
-    indirizzo_oggetto_lista = ricerca_sequenziale(testa_lsita_sing_concat, &numero_oggetti);
-
-    printf("valore >  : %d", indirizzo_oggetto_lista);
+    
+    if (testa_lista_sing_concat != NULL) {
+        indirizzo_oggetto_lista = ricerca_sequenziale(testa_lsita_sing_concat, &numero_oggetti);
+        printf("valore >  : %d", indirizzo_oggetto_lista);
+    }
 
     free(testa_lsita_sing_concat);
 
