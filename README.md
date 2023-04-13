@@ -242,3 +242,12 @@ void crea_heap(int numeri[], int sx, int dx) {
 
 ## List Algorithms > 
 
+
+## Tree Algorithms > 
+
+
+
+## Graph Algorithms > 
+
+
+## Hash Algorithms >
