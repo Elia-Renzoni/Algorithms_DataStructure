@@ -121,6 +121,66 @@ void bubblesort(int array[], int num_elements) {
 
 }
 ```
+* Merge Sort : 
+```C
+/**
+ * @brief implementazione dell'algoritmo di ordinamento merge sort
+ * 
+ */
+void merge_sort(int numeri[], int sx, int dx) {
+
+    int mx;
+
+    if (sx < dx) {
+        mx = (sx + dx) / 2;
+        merge_sort(numeri, sx, mx);
+        merge_sort(numeri, mx + 1, dx);
+        merge(numeri, sx, mx, dx);
+    }
+
+}
+
+/**
+ * @brief implementazione della funzione di fusione ordinata
+ * 
+ */
+void merge(int numeri[], int sx, int mx, int dx) {
+
+    int *appoggio, i, j, k;
+
+    appoggio = (int *)calloc(dx + 1, sizeof(int));
+
+    for (i = sx, j = mx + 1, k = 0; ((i <= mx) && (j <= dx)); k++) {
+
+        if (numeri[i] <= numeri[j]) {
+            appoggio[k] = numeri[i];
+            i++;
+        }
+        else {
+            appoggio[k] = numeri[j];
+            j++;
+        }
+    }
+
+    while (i <= mx) {
+        appoggio[k] = numeri[i];
+        i++;
+        k++;
+    }
+
+    while (j <= dx) {
+        appoggio[k] = numeri[j];
+        j++;
+        k++;
+    }
+
+    for (k = sx; (k <= dx); k++) 
+        numeri[k] = appoggio[k - sx];
+
+    free(appoggio);
+
+}
+```
 
 ## List Algorithms > 
 
