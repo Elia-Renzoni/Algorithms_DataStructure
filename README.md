@@ -11,9 +11,6 @@
 |                   | Merge Sort      |
 |                   | Quick Sort      |
 |                   | Heap Sort       |
-|                   | Counting Sort   |
-|                   | Radix Sort      |
-|                   | Bucket Sort     |
 
 * Linear Search : 
 ```C
