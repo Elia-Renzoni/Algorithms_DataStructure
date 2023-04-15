@@ -5,7 +5,6 @@
 *   @date 12/03/2023
 *
 *   Problem : delete the duplicated element of an array of intergers
-*   from leetcode.com
 *
 *
 *
