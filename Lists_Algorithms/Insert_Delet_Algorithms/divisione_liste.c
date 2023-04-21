@@ -36,7 +36,9 @@ int main(void) {
 	}
 	else 
 		printf("Lista non creata !\n");
-
+	
+	free(testa_lista);
+	free(testa_nuova_lista);
 
 	return (0);
 }
