@@ -28,9 +28,8 @@ int main(void) {
 	srand(1);
 	for (contatore = 0, numero = rand() % MAX_VALORE; (contatore < MAX_ELEMENTI); contatore++, numero = rand() % MAX_VALORE)
 		crea_stack(&cima, numero);
-
+	
 	mostra_stack(cima);
-
 
 	return (0);
 }
