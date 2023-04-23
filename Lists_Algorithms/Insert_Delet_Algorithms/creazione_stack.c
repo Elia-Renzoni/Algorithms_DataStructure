@@ -38,7 +38,6 @@ int main(void) {
 *	@brief algoritmo per la creazione di uno stack
 *	@param cima dello stack
 *	@param valore da inserire
-*
 **/
 void crea_stack(stack_t **cima, int valore_inserire) {
 
@@ -50,10 +49,8 @@ void crea_stack(stack_t **cima, int valore_inserire) {
 }
 
 /*
-*
 *	@brief algoritmo per mostare i valori di uno stack
 *	@param cima dello stack
-*
 **/
 void mostra_stack(stack_t *cima_stack) {
 
