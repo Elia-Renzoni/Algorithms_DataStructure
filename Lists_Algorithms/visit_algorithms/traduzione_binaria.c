@@ -55,15 +55,12 @@ binario_t *creazione_lista(void) {
 
     scanf("%d", &valore_bin);
     if (valore_bin != SENTINELLA) {
-
         testa_lista = oggetto_lista = (binario_t *)malloc(sizeof(binario_t));
         oggetto_lista->numero_binario = valore_bin;
-    
         for (scanf("%d", &valore_bin); (valore_bin != SENTINELLA); scanf("%d", &valore_bin)) {
                 oggetto_lista = oggetto_lista->successivo = (binario_t *)malloc(sizeof(binario_t));
                 oggetto_lista->numero_binario = valore_bin;
         }
-
         oggetto_lista->successivo = NULL;
     }
     else 
@@ -84,12 +81,9 @@ void ricerca_e_traduzione(binario_t *testa_lista) {
     int        sum = 0;
 
     for (oggetto_lista = testa_lista; (oggetto_lista != NULL); oggetto_lista = oggetto_lista->successivo) {
-
         if (oggetto_lista->numero_binario == 1) 
             sum += pow(2, valori_dominanti);
-        
         ++valori_dominanti;
-        
     }
 
     printf("Il numero Convertito é > %d", sum);
