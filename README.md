@@ -252,7 +252,7 @@ void visita_lista(numeri_t *testa) {
             printf("%d\n", elemento->numeri_acq);
 
 }
-
+```
 * Search Algorithm : 
 ```C
 elem_t *ricerca_inlista(elem_t *testa_lista, int valore_ricercare) {
@@ -265,7 +265,6 @@ elem_t *ricerca_inlista(elem_t *testa_lista, int valore_ricercare) {
 
 	return (oggetto_lista);
 }
-```
 ```
 * Insert Algorithm : 
 ```C
