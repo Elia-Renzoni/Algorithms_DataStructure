@@ -17,7 +17,7 @@ typedef struct stack {
 	struct stack *successivo;
 } stack_t;
 
-void creazione_stack(stack_t **, int);
+void     creazione_stack(stack_t **, int);
 stack_t *elminazione_elem_stack(stack_t **);
 
 int main(void) {
@@ -36,16 +36,13 @@ int main(void) {
 		free(elem_dele);
 	}
 
-
 	return (0);
 }
 
 /*
-*
 *	@brief algoritmo per la creazione di uno stack
 *	@param indirizzo della cima
 *	@param valore da inserire
-*
 **/
 void creazione_stack(stack_t **cima, int valore_inserire) {
 
@@ -57,11 +54,9 @@ void creazione_stack(stack_t **cima, int valore_inserire) {
 }
 
 /*
-*
 *	@brief algoritmo per la rimozione di n valori dallo stack
 *	@param indirizzo della cima
-*   @return indirizzo dell'elemento da eliminare
-*
+*       @return indirizzo dell'elemento da eliminare
 **/
 stack_t *elminazione_elem_stack(stack_t **cima) {
 
