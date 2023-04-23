@@ -242,6 +242,76 @@ void crea_heap(int numeri[], int sx, int dx) {
 
 ## List Algorithms > 
 
+* Visit Algorithm : 
+```C
+void visita_lista(numeri_t *testa) {
+
+    numeri_t *elemento;
+
+    for (elemento = testa; (elemento != NULL); elemento = elemento->successivo)
+            printf("%d\n", elemento->numeri_acq);
+
+}
+```
+* Insert Algorithm : 
+```C
+int inserimento_lista_ordinata(nodi_ord_t **testa_lista, int valore_inserire) {
+
+    int         esito_inserimento;
+    nodi_ord_t *oggetto_nuovo, *oggetto_lista, *oggetto_lista_prec;
+
+    for (oggetto_lista_prec, oggetto_lista = *testa_lista; 
+              (oggetto_lista != NULL && oggetto_lista->valore < valore_inserire); 
+        oggetto_lista_prec = oggetto_lista, oggetto_lista = oggetto_lista->successore);
+
+    if (oggetto_lista == NULL && oggetto_lista->valore == valore_inserire)
+        esito_inserimento = 0;
+    else {
+        esito_inserimento = 1;
+        oggetto_nuovo = (nodi_ord_t *)malloc(sizeof(nodi_ord_t));
+        oggetto_nuovo->valore = valore_inserire;
+        oggetto_nuovo->successore = oggetto_lista;
+
+        if (oggetto_lista == *testa_lista)
+            *testa_lista = oggetto_nuovo;
+        else
+            oggetto_lista_prec->successore = oggetto_nuovo;
+    }
+
+    return (esito_inserimento);
+
+
+}
+```
+* Delete Algorithm : 
+```C
+int rimozione_elementi(elementi_t **testa_lista, int valore_da_rimuovere) {
+
+	elementi_t *oggetto_lista, *oggetto_precedente;
+	int         esito_rimozione;
+
+	for (oggetto_precedente = oggetto_lista = *testa_lista; 
+						((oggetto_lista != NULL) && (oggetto_lista->valore != valore_da_rimuovere)); 
+								oggetto_precedente = oggetto_lista, oggetto_lista = oggetto_lista->successivo);
+
+	if (oggetto_lista == NULL || oggetto_lista->valore != valore_da_rimuovere)
+		esito_rimozione = 0;
+	else {
+
+		esito_rimozione = 1;
+		if (oggetto_lista == *testa_lista) 
+			*testa_lista = oggetto_lista->successivo;
+		else 
+			oggetto_precedente->successivo = oggetto_lista->successivo;
+
+		free(oggetto_lista);
+	}
+
+	return (esito_rimozione);
+
+}
+```
+
 
 ## Tree Algorithms > 
 
