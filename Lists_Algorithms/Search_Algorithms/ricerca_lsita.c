@@ -41,7 +41,6 @@ int main(void) {
 	free(testa_lista);
 
 	return (0);
-
 }
 
 /*
@@ -67,7 +66,6 @@ elem_t *creazione_lista(void) {
 	oggetto_lista->successore = NULL;
 
 	return (testa_lista);
-
 }
 
 /*
@@ -87,5 +85,4 @@ elem_t *ricerca_inlista(elem_t *testa_lista, int valore_ricercare) {
 		  oggetto_lista = oggetto_lista->successore);
 
 	return (oggetto_lista);
-
 }
