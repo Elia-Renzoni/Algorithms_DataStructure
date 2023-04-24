@@ -22,9 +22,7 @@ void merge(int numeri[], int sx, int mx, int dx);
 int main(void) {
 
     int numeri[] = {2, 10, 5, 20, 55, 4, 7, -50, 32, 1, 67, 8};
-    int sx = 0; 
-    int dx = MAX_ELEMENTS - 1;
-    int cnt = 0;
+    int sx = 0, dx = MAX_ELEMENTS - 1, cnt = 0;
 
     printf("Array non Ordinato > \n");
     while (cnt < MAX_ELEMENTS) {
@@ -72,7 +70,6 @@ void merge(int numeri[], int sx, int mx, int dx) {
     appoggio = (int *)calloc(dx + 1, sizeof(int));
 
     for (i = sx, j = mx + 1, k = 0; ((i <= mx) && (j <= dx)); k++) {
-
         if (numeri[i] <= numeri[j]) {
             appoggio[k] = numeri[i];
             i++;
