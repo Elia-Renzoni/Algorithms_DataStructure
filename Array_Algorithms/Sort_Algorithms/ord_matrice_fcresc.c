@@ -19,7 +19,6 @@
 #define  TRUE          1
 #define  FALSE         0
 
-
 void bubblesort_crescente(int array[], int numero_elementi);
 void bubblesort_decrescente(int array[], int numero_elementi);
 int  controlla_duplicati(int array[], int numero_elementi);
@@ -31,7 +30,6 @@ int main(void) {
          acquisizione_errata, 
          numero_elementi,
          duplicati;
-
 
     do {
         printf("Inserisci il numero degli elementi dell'array > \n");
@@ -53,7 +51,6 @@ int main(void) {
         while (getchar() != '\n');
 
     } while (acquisizione_errata);
-
 
     duplicati = controlla_duplicati(array, numero_elementi);
 
