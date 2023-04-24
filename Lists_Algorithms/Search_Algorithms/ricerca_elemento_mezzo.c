@@ -28,7 +28,6 @@ caratteri_t *ricerca_sequenziale(caratteri_t *, int *);
 
 int main(void) {
 
-
     caratteri_t *testa_lsita_sing_concat,
                 *indirizzo_oggetto_lista;
     int          numero_oggetti = 1;
@@ -52,7 +51,6 @@ caratteri_t *creazione_lista(int *numero_liste) {
     caratteri_t *testa_lista,
                 *oggetto_lista;
     char         valore_inserire;
-
 
     scanf("%c", &valore_inserire);
     if (valore_inserire != SENTINELLA) {
