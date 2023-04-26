@@ -30,7 +30,7 @@ int main(void) {
 	double  temp_es_creazione, tempo_es_mostra;
 
 	printf("Creazione Coda ! \n");
- 
+ 	uscita = ingresso = NULL;
 	tempo_creazione_i = clock();
 	creazione_coda(&uscita, &ingresso);
 	tempo_creazione_e = clock();
