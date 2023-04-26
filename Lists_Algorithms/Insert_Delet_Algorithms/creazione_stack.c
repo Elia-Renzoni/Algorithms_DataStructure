@@ -23,7 +23,7 @@ void mostra_stack(stack_t *);
 int main(void) {
 
 	stack_t *cima = NULL;
-	int      numero, contatore;
+	int      numero, contatore; 
 
 	srand(1);
 	for (contatore = 0, numero = rand() % MAX_VALORE; (contatore < MAX_ELEMENTI); contatore++, numero = rand() % MAX_VALORE)
