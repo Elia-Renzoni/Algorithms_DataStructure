@@ -28,7 +28,8 @@ int main(void) {
 	coda_t *uscita, *ingresso, *elem_dele;
 	int     numero_ins, numero_elim;
 	int     contatore = 0;
-
+	
+	uscita = ingresso = NULL;
 	srand(time(NULL));
 	for (numero_ins = rand() % MAX_VALORE; (contatore < MAX_ELEMENTI); numero_ins = rand() % MAX_VALORE) 
 		creazione_coda(&uscita, &ingresso, numero_ins);
