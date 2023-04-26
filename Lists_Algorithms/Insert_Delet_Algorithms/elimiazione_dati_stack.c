@@ -22,7 +22,7 @@ stack_t *elminazione_elem_stack(stack_t **);
 
 int main(void) {
 
-	stack_t *cima, *elem_dele;
+	stack_t *cima = NULL, *elem_dele;
 	int      numeri, contatore, elementi_elim;
 
 	srand(1);
