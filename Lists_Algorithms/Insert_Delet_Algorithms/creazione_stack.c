@@ -22,7 +22,7 @@ void mostra_stack(stack_t *);
 
 int main(void) {
 
-	stack_t *cima;
+	stack_t *cima = NULL;
 	int      numero, contatore;
 
 	srand(1);
