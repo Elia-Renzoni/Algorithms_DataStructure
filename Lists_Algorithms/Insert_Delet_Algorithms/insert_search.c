@@ -26,14 +26,14 @@ typedef struct coda {
 
 void    creazione_coda(coda_t **, coda_t **, valori_t);
 void    mostra_coda(coda_t *);
-coda_t *ricerca_in_coda(coda_t *, int, char stringa[]);
+coda_t *ricerca_in_coda(coda_t *, int);
 
 int main(void) {
 
   coda_t  *uscita = NULL, *ingresso = NULL, *elemento_cercato;
   int      numero_acquisito, contatore, indice, elemento_rand, numero_da_ricercare;
   valori_t accesso;
-  char     alfabeto[] = "abcdefghilmnopqrstuvz", stringa_da_ricercare[MAX_NUMERO_STR];
+  char     alfabeto[] = "abcdefghilmnopqrstuvz";
 
   printf("Inserisci un numero > \n");
   scanf("%d", &numero_acquisito);
@@ -51,18 +51,16 @@ int main(void) {
   printf("Elementi della Coda > \n");
   mostra_coda(uscita);
 
-  printf("Inserisci un valore da cercare, un numero intero e una stringa");
+  printf("Inserisci un valore da cercare, un numero intero\n");
   printf("Inserisci un numero intero >\n");
   scanf("%d", &numero_da_ricercare);
-  printf("Inserisci una stringa > \n");
-  scanf("%5s", stringa_da_ricercare);
-  elemento_cercato = ricerca_in_coda(uscita, numero_da_ricercare, stringa_da_ricercare);
+
+  elemento_cercato = ricerca_in_coda(uscita, numero_da_ricercare);
 
   if (elemento_cercato != NULL)
     printf("Trovato !\n");
   else
-    printf("Non trovato !\n", );
-
+    printf("Non trovato !\n");
 
 
   return (0);
@@ -76,8 +74,7 @@ int main(void) {
 void creazione_coda(coda_t **uscita, coda_t **ingresso, valori_t accesso) {
 
   coda_t *nuovo_elemento = (coda_t *)malloc(sizeof(coda_t));
-  nuovo_elemento->valore.numero = accesso.numero;
-  nuovo_elemento->valore.stringa = accesso.stringa;
+  nuovo_elemento->valore = accesso;
   nuovo_elemento->successivo = NULL;
 
   if (*ingresso != NULL)
@@ -98,8 +95,7 @@ void mostra_coda(coda_t *uscita) {
   coda_t *oggetto_lista;
 
   for (oggetto_lista = uscita; (oggetto_lista != NULL); oggetto_lista = oggetto_lista->successivo)
-      printf("%d%s", oggetto_lista->valore.numero, oggetto_lista->valore.stringa);
-
+      printf("%d\t%s\n", oggetto_lista->valore.numero, oggetto_lista->valore.stringa);
 
 }
 
@@ -107,16 +103,12 @@ void mostra_coda(coda_t *uscita) {
 * @brief algoritmo di riceca in una lista
 *
 **/
-coda_t *ricerca_in_coda(coda_t *uscita, int numero_ricerca, char stringa_ricerca[]) {
+coda_t *ricerca_in_coda(coda_t *uscita, int numero_ricerca) {
 
   coda_t  *oggetto_lista;
-  valori_t accesso;
 
-  for (oggetto_lista = uscita;
-      ((oggetto_lista != NULL) && (oggetto_lista->valore.numero != numero_ricerca) && (oggetto_lista->valore.stringa != stringa_ricerca[]))
-      oggetto_lista = oggetto_lista->successivo)
+  for (oggetto_lista = uscita; ((oggetto_lista != NULL) && (oggetto_lista->valore.numero != numero_ricerca)); oggetto_lista = oggetto_lista->successivo)
 
   return (oggetto_lista);
-  
 
 }
