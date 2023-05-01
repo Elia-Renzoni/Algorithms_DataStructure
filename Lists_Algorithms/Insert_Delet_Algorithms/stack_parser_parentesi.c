@@ -125,5 +125,7 @@ int parsing_parentesi(stack_t **cima) {
   }
 
   free(oggetto_pila);
+  
+  return (esito_parsing);
 
 }
