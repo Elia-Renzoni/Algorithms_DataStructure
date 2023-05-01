@@ -56,8 +56,10 @@ int main(void) {
     controllo_parentesi = parsing_parentesi(&cima);
     if (controllo_parentesi == falso)
       printf("Coppia Non valida !\n");
+    else if (controllo_parentesi == vero)
+      printf("Valida !\n");
     else
-      printf("Coppia Valida !\n");
+      printf("No Operation ! \n");
   }
 
   return (0);
@@ -116,16 +118,19 @@ int parsing_parentesi(stack_t **cima) {
           esito_parsing = falso;
         break;
       case GRAFFA_APRI:
-        if ((*cima)->parentesi == GRAFFA_APRI)
+        if ((*cima)->parentesi == GRAFFA_CHIUDI)
           esito_parsing = vero;
         else
           esito_parsing = falso;
+        break;
+      defualt:
+        esito_parsing = -1;
         break;
     }
   }
 
   free(oggetto_pila);
-  
+
   return (esito_parsing);
 
 }
