@@ -38,13 +38,14 @@ int main(void) {
   printf("Inserisci un numero > \n");
   scanf("%d", &numero_acquisito);
 
-  srand(time(NULL));
+  srand(1);
   for (contatore = 0; (contatore < numero_acquisito); contatore++) {
     accesso.numero = LIMITE_MIN + rand() % (LIMITE_MAX * numero_acquisito);
     for (indice = 0; (indice < MAX_NUMERO_STR); indice++) {
       elemento_rand = rand() % (26);
       accesso.stringa[indice] = alfabeto[elemento_rand];
     }
+    accesso.stringa[indice] = '\0';
     creazione_coda(&uscita, &ingresso, accesso);
   }
 
