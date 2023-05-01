@@ -42,7 +42,7 @@ int main(void) {
   for (contatore = 0; (contatore < numero_acquisito); contatore++) {
     accesso.numero = LIMITE_MIN + rand() % (LIMITE_MAX * numero_acquisito);
     for (indice = 0; (indice < MAX_NUMERO_STR); indice++) {
-      elemento_rand = rand() % 26;
+      elemento_rand = rand() % (26);
       accesso.stringa[indice] = alfabeto[elemento_rand];
     }
     creazione_coda(&uscita, &ingresso, accesso);
