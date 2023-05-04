@@ -1,7 +1,7 @@
 # Makefile 
-cerca_min_max_albero_bin_ric: cerca_min_max_albero_bin_ric.c Makefile
-	gcc -ansi -Wall -O cerca_min_max_albero_bin_ric.c -o cerca_min_max_albero_bin_ric
+somma_vincolata: somma_vincolata.c Makefile
+	gcc -ansi -Wall -O somma_vincolata.c -o somma_vincolata
 pulisci:
-	rm -f cerca_min_max_albero_bin_ric.o
+	rm -f somma_vincolata.o
 pulisci_tutto:
-	rm -f cerca_min_max_albero_bin_ric cerca_min_max_albero_bin_ric.o
+	rm -f somma_vincolata somma_vincolata.o
