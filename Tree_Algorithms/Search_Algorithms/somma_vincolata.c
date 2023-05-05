@@ -87,16 +87,14 @@ void creazione_bst(albero_t **radice, int chiave) {
  * */
 int somma_vincolata(albero_t *radice, int primo_vincolo, int secondo_vincolo) {
 
-	int       somma = 0;
+	int somma;
 
 	if (radice == NULL) {
-
 		somma = somma_vincolata(radice->figlio_sx, primo_vincolo, secondo_vincolo);
 		if (primo_vincolo <= radice->chiave && radice->chiave <= secondo_vincolo)
 			somma += radice->chiave;
 		somma = somma_vincolata(radice->figlio_dx, primo_vincolo, secondo_vincolo);
 	}
-
 
 	return (somma);
 		
