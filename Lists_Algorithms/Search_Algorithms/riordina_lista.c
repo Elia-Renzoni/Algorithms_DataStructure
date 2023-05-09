@@ -13,9 +13,7 @@
 #include <limits.h>
 #include <time.h>
 
-
 #define CONTROLLO_PARI 2
-
 
 typedef struct lista {
 	int           numeri;
