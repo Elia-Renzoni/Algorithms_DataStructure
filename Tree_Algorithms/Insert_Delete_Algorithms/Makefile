@@ -1,7 +1,7 @@
-# Makefile
-somma_target: path_somma_target.c Makefile
-	gcc -ansi -Wall -O path_somma_target.c -o path_somma_target
+# Makefile from_bst_to_stack
+sorgente: from_bst_to_stack.c Makefile
+	gcc -ansi -Wall -O from_bst_to_stack.c -o from_bst_to_stack
 pulisci:
-	rm -f path_somma_target.o
+	rm -f from_bst_to_stack.o
 pulisci_tutto:
-	rm -f path_somma_target path_somma_target.o
+	rm -f from_bst_to_stack from_bst_to_stack.o
