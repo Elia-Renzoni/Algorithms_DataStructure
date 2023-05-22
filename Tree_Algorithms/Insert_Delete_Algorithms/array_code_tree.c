@@ -82,10 +82,8 @@ int *crea_array(int numero_elementi) {
 }
 
 void inserimento_array(int *array, int contatore, int valore) {
-
-
+	
 	array[contatore] = valore;
-
 }
 
 void inserimento_coda(coda_t **uscita, coda_t **ingresso, int valore) {
