@@ -66,9 +66,11 @@ int main(void) {
 	else
 		printf("Profondita massima : %d \n", profondita_s);
 
+	free(uscita);
+	free(radice);
+	free(arr_valori);
+	
 	return (0);
-
-
 }
 
 
