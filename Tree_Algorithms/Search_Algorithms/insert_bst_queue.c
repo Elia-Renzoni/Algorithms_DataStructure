@@ -25,7 +25,7 @@ void crea_albero_bst(bst_t **, int);
 void visita_simmetrica(bst_t *);
 void crea_coda(coda_t **, coda_t **, int);
 void mostra_coda(coda_t *);
-bst_t *ricerca_bin_nodo(bst_t *, int, coda_t *, coda_t *);
+bst_t *ricerca_bin_nodo(bst_t *, int, coda_t **, coda_t **);
 coda_t *elimina_coda(coda_t **, coda_t **);
 
 int main(void) {
