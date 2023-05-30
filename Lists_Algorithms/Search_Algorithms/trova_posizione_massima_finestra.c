@@ -1,5 +1,4 @@
 /*
-*
 *	@author Elia Renzoni
 *	@date 30/05/2023
 *	@brief dato un array di interi, trovare il massimo di un sottoarray (tre elementi) e scriverlo in una coda
