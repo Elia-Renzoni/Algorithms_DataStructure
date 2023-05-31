@@ -43,7 +43,7 @@ int main(void) {
 			sequenza_numeri[contatore] = valore;
 		}
 		for (contatore = 0; (contatore < numero_elementi); contatore++) {
-			massimo_locale = cerca_massimo_locale(sequenza_numeri, contatore, contatore + 3, indice_movimento);
+			massimo_locale = cerca_massimo_locale(sequenza_numeri, contatore, contatore + indice_movimento, indice_movimento);
 			crea_coda(&uscita, &ingresso, massimo_locale);
 		}
 		mostra_coda(uscita);
