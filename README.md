@@ -324,7 +324,61 @@ int rimozione_elementi(elementi_t **testa_lista, int valore_da_rimuovere) {
 
 }
 ```
+* Queue Insert Algorithm : 
+```C
+void creazione_coda(coda_t **uscita, coda_t **ingresso, int valore_inserire) {
 
+	coda_t *oggetto_nuovo = (coda_t *)malloc(sizeof(coda_t));
+	oggetto_nuovo->valore = valore_inserire;
+	oggetto_nuovo->successivo = NULL;
+
+	if (*ingresso != NULL)
+		(*ingresso)->successivo = oggetto_nuovo;
+	else
+		*uscita = oggetto_nuovo;
+	*ingresso = oggetto_nuovo;
+
+
+}
+```
+* Queue Remove Algorithm : 
+```C
+coda_t *eliminazione_elem_coda(coda_t **uscita, coda_t **ingresso) {
+
+	coda_t *oggetto_lista = *uscita;
+
+	if (*uscita != NULL) {
+		*uscita = (*uscita)->successivo;
+		if (*uscita == NULL)
+			*ingresso = NULL;
+	}
+
+	return (oggetto_lista);
+}
+```
+* Stack Insert Algorithm : 
+```C
+void creazione_stack(stack_t **cima, char parentesi) {
+
+  stack_t *nuovo_oggetto = (stack_t *)malloc(sizeof(stack_t));
+  nuovo_oggetto->parentesi = parentesi;
+  nuovo_oggetto->successivo = *cima;
+  *cima = nuovo_oggetto;
+
+}
+```
+* Stack Remove Algorithm : 
+```C
+stack_t *elminazione_elem_stack(stack_t **cima) {
+
+	stack_t *oggetto_elimi = *cima;
+	if (*cima != NULL)
+		*cima = (*cima)->successivo;
+
+	return (oggetto_elimi);
+
+}
+```
 
 ## Tree Algorithms > 
 
