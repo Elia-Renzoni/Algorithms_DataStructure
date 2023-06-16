@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define NOP -1
+#define NOP 0
 
 typedef struct veritici {
   int chiave;
