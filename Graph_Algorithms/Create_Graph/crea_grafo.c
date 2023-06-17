@@ -10,7 +10,7 @@
 
 #define NOP 0
 
-typedef struct veritici {
+typedef struct vertici {
   int chiave;
   struct vertici *vertice_succ;
   struct archi *testa_lista;
@@ -45,27 +45,31 @@ int main(int argc, char** argv) {
 
     for (contatore = 0; (contatore < numero_archi_uscenti); contatore++) {
       valore = rand() % 50;
-      if (cerca_valore_corretto(testa_lista_primaria) != NOP) {
+      if (cerca_valore_corretto(testa_lista_primaria, valore) != NOP) {
         creazione_lista_secondaria(&testa_lista_secondaria, valore);
       }
       vertice->testa_lista = testa_lista_secondaria;
     }
+    testa_lista_secondaria = NULL;
   }
   visita_grafo_naive(testa_lista_primaria);
   return (0);
 }
 
 void creazione_lista_primaria(vertici_t **testa_lista, int valore) {
-  vertici_t *nuovo_vertice, *vertice_gen;
-  for (vertice_gen = *testa_lista; (vertice_gen != NULL); vertice_gen = vertice_gen->vertice_succ);
+  vertici_t *nuovo_vertice, *vertice_gen, *vertice_prec;
+  for (vertice_gen = *testa_lista; 
+              (vertice_gen != NULL); 
+                    vertice_prec = vertice_gen, vertice_gen = vertice_gen->vertice_succ);
   if (vertice_gen == NULL) {
     nuovo_vertice = (vertici_t *)malloc(sizeof(vertici_t));
     nuovo_vertice->chiave = valore;
     nuovo_vertice->vertice_succ = NULL;
+    nuovo_vertice->testa_lista = NULL;
     if (vertice_gen == *testa_lista)
       *testa_lista = nuovo_vertice;
     else
-      vertice_gen->vertice_succ = nuovo_vertice;
+      vertice_prec->vertice_succ = nuovo_vertice;
   }
 }
 
@@ -76,16 +80,18 @@ int cerca_valore_corretto(vertici_t *vertici, int val_cerc) {
 }
 
 void creazione_lista_secondaria(archi_t **testa_lista, int valore) {
-  archi_t *arco_gen, *nuovo_arco;
-  for (arco_gen = *testa_lista; (arco_gen != NULL); arco_gen = arco_gen->arco_succ);
+  archi_t *arco_gen, *nuovo_arco, *arco_prec;
+  for (arco_gen = *testa_lista; 
+                  (arco_gen != NULL); 
+                        arco_prec = arco_gen, arco_gen = arco_gen->arco_succ);
   if (arco_gen == NULL) {
-    nuovo_arco = (archi_t *)malloc(sizeof(archi_t));
+    nuovo_arco = (archi_t *) malloc(sizeof(archi_t));
     nuovo_arco->vertice->chiave = valore;
     nuovo_arco->arco_succ = NULL;
     if (arco_gen == *testa_lista)
       *testa_lista = nuovo_arco;
     else
-      arco_gen->arco_succ = nuovo_arco;
+      arco_prec->arco_succ = nuovo_arco;
   }
 }
 
@@ -96,6 +102,6 @@ void visita_grafo_naive(vertici_t *testa_lista) {
     printf("%d \t", elem->chiave);
     for (arco = elem->testa_lista; (arco != NULL); arco = arco->arco_succ)
       printf("%d \t", arco->vertice->chiave);
-    putchar("\n");
+    printf("\n");
   }
 }
