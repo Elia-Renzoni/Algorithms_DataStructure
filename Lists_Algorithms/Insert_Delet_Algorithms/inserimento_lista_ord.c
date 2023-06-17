@@ -96,11 +96,11 @@ int inserimento_lista_ordinata(nodi_ord_t **testa_lista, int valore_inserire) {
     int         esito_inserimento;
     nodi_ord_t *oggetto_nuovo, *oggetto_lista, *oggetto_lista_prec;
 
-    for (oggetto_lista_prec, oggetto_lista = *testa_lista; 
+    for (oggetto_lista_prec = oggetto_lista = *testa_lista; 
               (oggetto_lista != NULL && oggetto_lista->valore < valore_inserire); 
         oggetto_lista_prec = oggetto_lista, oggetto_lista = oggetto_lista->successore);
 
-    if (oggetto_lista == NULL && oggetto_lista->valore == valore_inserire)
+    if (oggetto_lista != NULL && oggetto_lista->valore == valore_inserire)
         esito_inserimento = 0;
     else {
         esito_inserimento = 1;
