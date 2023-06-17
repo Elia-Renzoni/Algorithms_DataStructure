@@ -17,7 +17,7 @@ typedef struct vertici {
 } vertici_t;
 
 typedef struct archi {
-  vertici_t *vertice;
+  struct vertici *vertice;
   struct archi *arco_succ;
 } archi_t;
 
@@ -48,8 +48,8 @@ int main(int argc, char** argv) {
       if (cerca_valore_corretto(testa_lista_primaria, valore) != NOP) {
         creazione_lista_secondaria(&testa_lista_secondaria, valore);
       }
-      vertice->testa_lista = testa_lista_secondaria;
     }
+    vertice->testa_lista = testa_lista_secondaria;
     testa_lista_secondaria = NULL;
   }
   visita_grafo_naive(testa_lista_primaria);
@@ -64,7 +64,7 @@ void creazione_lista_primaria(vertici_t **testa_lista, int valore) {
   if (vertice_gen == NULL) {
     nuovo_vertice = (vertici_t *)malloc(sizeof(vertici_t));
     nuovo_vertice->chiave = valore;
-    nuovo_vertice->vertice_succ = NULL;
+    nuovo_vertice->vertice_succ = vertice_gen;
     nuovo_vertice->testa_lista = NULL;
     if (vertice_gen == *testa_lista)
       *testa_lista = nuovo_vertice;
@@ -75,7 +75,7 @@ void creazione_lista_primaria(vertici_t **testa_lista, int valore) {
 
 int cerca_valore_corretto(vertici_t *vertici, int val_cerc) {
   vertici_t *elem;
-  for (elem = vertici; (elem != NULL && elem->chiave != val_cerc); elem = elem->vertice_succ) 
+  for (elem = vertici; (elem != NULL && elem->chiave != val_cerc); elem = elem->vertice_succ);
   return ((elem != NULL)? 1 : 0);
 }
 
@@ -86,6 +86,7 @@ void creazione_lista_secondaria(archi_t **testa_lista, int valore) {
                         arco_prec = arco_gen, arco_gen = arco_gen->arco_succ);
   if (arco_gen == NULL) {
     nuovo_arco = (archi_t *) malloc(sizeof(archi_t));
+    nuovo_arco->vertice = (struct vertici *) malloc(sizeof(struct vertici));
     nuovo_arco->vertice->chiave = valore;
     nuovo_arco->arco_succ = NULL;
     if (arco_gen == *testa_lista)
