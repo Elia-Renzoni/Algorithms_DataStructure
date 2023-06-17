@@ -17,7 +17,7 @@ typedef struct vertici {
 } vertici_t;
 
 typedef struct archi {
-  struct vertici *vertice;
+  vertici_t *vertice;
   struct archi *arco_succ;
 } archi_t;
 
@@ -58,7 +58,7 @@ int main(int argc, char** argv) {
 
 void creazione_lista_primaria(vertici_t **testa_lista, int valore) {
   vertici_t *nuovo_vertice, *vertice_gen, *vertice_prec;
-  for (vertice_gen = *testa_lista; 
+  for (vertice_prec = vertice_gen = *testa_lista; 
               (vertice_gen != NULL); 
                     vertice_prec = vertice_gen, vertice_gen = vertice_gen->vertice_succ);
   if (vertice_gen == NULL) {
@@ -81,7 +81,7 @@ int cerca_valore_corretto(vertici_t *vertici, int val_cerc) {
 
 void creazione_lista_secondaria(archi_t **testa_lista, int valore) {
   archi_t *arco_gen, *nuovo_arco, *arco_prec;
-  for (arco_gen = *testa_lista; 
+  for (arco_prec = arco_gen = *testa_lista; 
                   (arco_gen != NULL); 
                         arco_prec = arco_gen, arco_gen = arco_gen->arco_succ);
   if (arco_gen == NULL) {
