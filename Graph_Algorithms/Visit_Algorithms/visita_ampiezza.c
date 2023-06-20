@@ -30,15 +30,15 @@ typedef struct archi {
 } archi_t;
 
 typedef struct coda_colore {
-	int valore_vertice;
+	vertici_t *chiave;
 	struct coda_colore *succ;
 } coda_t;
 
 void inserisci_in_lista_prim(vertici_t **, int);
 void inserisci_in_lista_sec(archi_t **, int);
-void inserisci_in_coda(coda_t **, coda_t **, int);
+void inserisci_in_coda(coda_t **, coda_t **, vertici_t *);
 vertici_t *valida_valore(vertici_t *, int);
-coda_t *rimuovi_da_coda(coda_t **, coda_t **);
+vertici_t *rimuovi_da_coda(coda_t **, coda_t **);
 void avvia_visita_ampiezza(vertici_t *);
 void visita_ampiezza(vertici_t *);
 
@@ -120,10 +120,10 @@ void inserisci_in_lista_sec(archi_t **testa, int valore) {
 	}
 }
 
-void inserisci_in_coda(coda_t **uscita, coda_t **ingresso, int valore) {
+void inserisci_in_coda(coda_t **uscita, coda_t **ingresso, vertici_t *vertice_grafo) {
 
 	coda_t *nuovo_elem = (coda_t *)malloc(sizeof(coda_t));
-	nuovo_elem->valore_vertice = valore;
+	nuovo_elem->chiave = vertice_grafo;
 	nuovo_elem->succ = NULL;
 	if (*ingresso != NULL)
 		(*ingresso)->succ = nuovo_elem;
@@ -141,9 +141,9 @@ vertici_t *valida_valore(vertici_t *testa_lista, int valore_cercare) {
 	return (vertice);
 }
 
-coda_t *rimuovi_da_coda(coda_t **uscita, coda_t **ingresso) {
+vertici_t *rimuovi_da_coda(coda_t **uscita, coda_t **ingresso) {
 
-	coda_t *elem_rem = *uscita;
+	vertici_t *elem_rem = (vertici_t *)*uscita;
 	if (*uscita != NULL) {
 		*uscita = (*uscita)->succ;
 		if (*uscita == NULL)
@@ -175,16 +175,16 @@ void visita_ampiezza(vertici_t *vertice_sorgente) {
 
 	vertice_sorgente->colore = grigio;
 	vertice_sorgente->distanza = 0;
-	inserisci_in_coda(&uscita, &ingresso, vertice_sorgente->chiave);
+	inserisci_in_coda(&uscita, &ingresso, vertice_sorgente);
 
 	while (uscita != NULL) {
-		vertice = (vertici_t *)rimuovi_da_coda(&uscita, &ingresso);
+		vertice = rimuovi_da_coda(&uscita, &ingresso);
 		printf("%d\n", vertice->chiave);
 		for (arco = vertice->arco_uscente; (arco != NULL); arco = arco->arco_succ) {
 			if (arco->vertice->colore == bianco) {
 				arco->vertice->colore = grigio;
 				arco->vertice->distanza = vertice->distanza + 1;
-				inserisci_in_coda(&uscita, &ingresso, arco->vertice->chiave);
+				inserisci_in_coda(&uscita, &ingresso, arco->vertice);
 			}
 		}
 		vertice->colore = nero;
